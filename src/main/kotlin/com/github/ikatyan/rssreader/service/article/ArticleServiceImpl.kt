@@ -9,4 +9,9 @@ class ArticleServiceImpl(private val articleRepository: ArticleRepository) : Art
     override fun findOneByArticleId(id: Int): Article? {
         return articleRepository.findOne(id)
     }
+
+    override fun findAllByFeedId(feedId: Int): List<Article> {
+        return articleRepository.findAllByFeedId(feedId)
+    }
+
 }
