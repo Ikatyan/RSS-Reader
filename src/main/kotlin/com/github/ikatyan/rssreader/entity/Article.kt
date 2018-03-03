@@ -8,7 +8,7 @@ import javax.persistence.*
 @Table(name = "article")
 data class Article(
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "article_id", nullable = false)
         var articleId: Int = -1,
 

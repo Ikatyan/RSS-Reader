@@ -1,6 +1,11 @@
 package com.github.ikatyan.rssreader.repository
 
 import com.github.ikatyan.rssreader.entity.Article
-import org.springframework.data.repository.CrudRepository
+import com.github.ikatyan.rssreader.entity.Feed
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface ArticleRepository : CrudRepository<Article, Int>
+interface ArticleRepository : JpaRepository<Article, Int> {
+    fun existsByLink(link: String): Boolean
+}
+
+interface FeedRepository : JpaRepository<Feed, Int>
