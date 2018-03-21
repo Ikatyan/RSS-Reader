@@ -4,10 +4,8 @@ import com.github.ikatyan.rssreader.entity.Article
 import com.github.ikatyan.rssreader.entity.Feed
 import com.github.ikatyan.rssreader.service.article.ArticleService
 import com.github.ikatyan.rssreader.service.feed.FeedService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/")
@@ -28,6 +26,12 @@ class HelloController(
     @GetMapping("/feed")
     fun findAllFeeds(): List<Feed>? {
         return feedService.findAll()
+    }
+
+    @PostMapping("/feed")
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createFeed(feed: Feed) {
+        feedService.save(feed)
     }
 
 }

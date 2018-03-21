@@ -4,4 +4,5 @@ import com.github.ikatyan.rssreader.entity.Feed
 
 interface FeedService {
     fun findAll(): List<Feed>?
+    fun save(feed: Feed): Feed?
 }
